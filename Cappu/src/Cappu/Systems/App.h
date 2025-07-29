@@ -10,6 +10,7 @@ namespace Cappu {
 		void Run();
 
 	private:
+		bool m_running = true;
 	};
 
 	//To be defined in client

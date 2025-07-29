@@ -11,12 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CappuPCH.h" />
     <ClInclude Include="src\Cappu\Debug\Log.h" />
     <ClInclude Include="src\Cappu\EntryPoint.h" />
+    <ClInclude Include="src\Cappu\Events\Events.h" />
+    <ClInclude Include="src\Cappu\Events\KeyEvents.h" />
+    <ClInclude Include="src\Cappu\Events\MouseEvents.h" />
+    <ClInclude Include="src\Cappu\Events\WindowEvents.h" />
     <ClInclude Include="src\Cappu\Systems\App.h" />
     <ClInclude Include="src\Cappu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CappuPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Cappu\Debug\Log.cpp" />
     <ClCompile Include="src\Cappu\Systems\App.cpp" />
   </ItemGroup>
@@ -69,6 +78,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -85,6 +96,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

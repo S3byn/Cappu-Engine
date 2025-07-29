@@ -1,8 +1,5 @@
+#include "CappuPCH.h"
 #include "Log.h"
-
-#include <ctime>
-#include <stdio.h>
-#include <stdarg.h>
 
 void PrintLogHeader(Cappu::LogType type) {
 	time_t now = time(nullptr);
