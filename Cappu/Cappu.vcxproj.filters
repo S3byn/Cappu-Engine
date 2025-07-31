@@ -24,6 +24,9 @@
     <ClCompile Include="src\CappuPCH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platforms\OS\Windows\WinWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cappu\EntryPoint.h">
@@ -51,6 +54,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CappuPCH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Systems\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OS\Windows\WinWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Systems\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
