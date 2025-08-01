@@ -1,11 +1,18 @@
 #define CAPPU_ENTRY_POINT
 #include <Cappu.h>
 
-#include "test.h"
+#include "Test.h"
 
 class Game : public Cappu::App {
 public:
-	Game() {}
+	Game() {
+		Test* test = new Test();
+		PushLayer(test);
+
+		if (Cappu::Input::GetKeyPressed((int)'D')) {
+			PopLayer(test);
+		}
+	}
 	~Game() {}
 };
 

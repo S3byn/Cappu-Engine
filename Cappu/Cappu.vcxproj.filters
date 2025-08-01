@@ -30,7 +30,10 @@
     <ClCompile Include="src\Platforms\OS\Windows\WinInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Layer.cpp">
+    <ClCompile Include="src\Cappu\Systems\Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cappu\Systems\LayerManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,7 +86,10 @@
     <ClInclude Include="src\Cappu\Systems\MouseCodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Layer.h">
+    <ClInclude Include="src\Cappu\Systems\Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Systems\LayerManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

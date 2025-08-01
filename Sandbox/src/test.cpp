@@ -1,5 +1,14 @@
-#include "test.h"
+#include "Test.h"
 
-test::test()
-{
+void Test::OnAttach() {
+	CAPPU_LOG("Hello");
 }
+
+void Test::OnDetach() {
+	CAPPU_LOG("Goodbye");
+}
+
+void Test::OnUpdate(float delta) {
+	CAPPU_LOG("Test");
+}
+

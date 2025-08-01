@@ -7,6 +7,8 @@
 #include "Cappu/Systems/KeyCodes.h"
 #include "Cappu/Systems/MouseCodes.h"
 
+#include "Cappu/Debug/Log.h"
+
 //Entry Point
 #ifdef CAPPU_ENTRY_POINT
 	#include "Cappu/EntryPoint.h"

@@ -2,8 +2,13 @@
 
 #include <Cappu.h>
 
-class test {
+class Test : public Cappu::Layer {
 public:
-	test();
+	void OnAttach() override;
+	void OnDetach() override;
+	void OnUpdate(float delta) override;
+
+private:
 };
+
 
