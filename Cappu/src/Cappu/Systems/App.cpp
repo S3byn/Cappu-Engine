@@ -18,6 +18,8 @@ Cappu::App::~App() {
 void Cappu::App::Run() {
 	while (m_running){
 		m_window->OnUpdate();
+
+
 	}
 }
 

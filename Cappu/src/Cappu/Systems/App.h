@@ -4,6 +4,8 @@
 #include "Cappu/Events/WindowEvents.h"
 
 #include "Cappu/Systems/Core.h"
+#include "Cappu/Systems/Input.h"
+
 
 namespace Cappu {
 
@@ -16,9 +18,9 @@ namespace Cappu {
 
 		void OnEvent(Event& event);
 
-		inline static App& Get() { return *s_instance; }
-		inline Window& GetWindow() { return *m_window; }
+		inline static Window& GetWindow() { return *Get().m_window; }
 	private:
+		inline static App& Get() { return *s_instance; }
 		bool onWindowClose(WindowCloseEvent& event);
 
 	private:
