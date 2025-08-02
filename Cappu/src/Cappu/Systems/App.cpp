@@ -11,11 +11,12 @@ Cappu::App::App() {
 
 	m_window = Window::Create();
 	m_window->SetEventCallback(CAPPU_BIND_EVENT_FN(App::OnEvent));
+	
+	m_imGuiLayer = new ImGuiLayer();
+	PushOverlay(m_imGuiLayer);
 }
 
-Cappu::App::~App() {
-
-}
+Cappu::App::~App() {}
 
 void Cappu::App::PushLayer(Layer* layer) {
 	m_layerManager.PushLayer(layer);
@@ -27,17 +28,6 @@ void Cappu::App::PushOverlay(Layer* overlay) {
 	overlay->OnAttach();
 }
 
-void Cappu::App::PopLayer(Layer* layer) {
-	m_layerManager.PopLayer(layer);
-	layer->OnDetach();
-}
-
-void Cappu::App::PopOverlay(Layer* overlay) {
-	m_layerManager.PopLayer(overlay);
-	overlay->OnDetach();
-}
-
-
 void Cappu::App::Run() {
 	while (m_running){
 		float time = (float)glfwGetTime();
@@ -47,6 +37,11 @@ void Cappu::App::Run() {
 		if (!m_minimized) {
 			for (auto layer : m_layerManager) layer->OnUpdate(delta);
 		}
+		m_imGuiLayer->Begin();
+
+		for (auto layer : m_layerManager) layer->OnImGuiDraw();
+
+		m_imGuiLayer->End();
 
 		m_window->OnUpdate();
 	}

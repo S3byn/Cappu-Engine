@@ -7,6 +7,7 @@
 #include "Cappu/Systems/Input.h"
 
 #include "Cappu/Systems/LayerManager.h"
+#include "Cappu/ImGui/ImGuiLayer.h"
 
 namespace Cappu {
 
@@ -22,24 +23,23 @@ namespace Cappu {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
-		void PopLayer(Layer* layer);
-		void PopOverlay(Layer* overlay);
-
 		inline static Window& GetWindow() { return *Get().m_window; }
+
 	private:
 		inline static App& Get() { return *s_instance; }
 		bool onWindowClose(WindowCloseEvent& event);
 
 	private:
 		Unique<Window> m_window = nullptr;
-		bool m_running = true;
+		LayerManager m_layerManager;
+		static App* s_instance;
+
+		ImGuiLayer* m_imGuiLayer = nullptr;
+
 		bool m_minimized = false;
+		bool m_running = true;
 
 		float m_lastTime = 0.0f;
-
-		LayerManager m_layerManager;
-
-		static App* s_instance;
 	};
 
 	//To be defined in client

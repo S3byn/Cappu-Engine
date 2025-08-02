@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cappu\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Cappu\Systems\LayerManager.h" />
     <ClInclude Include="src\Cappu\Systems\Layer.h" />
     <ClInclude Include="src\CappuPCH.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="src\Platforms\OS\Windows\WinInput.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cappu\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Cappu\Systems\LayerManager.cpp" />
     <ClCompile Include="src\Cappu\Systems\Layer.cpp" />
     <ClCompile Include="src\CappuPCH.cpp">
@@ -45,6 +47,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
       <Project>{afc63031-4be8-4074-b12e-be7c86f69c43}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\ImGui\ImGui.vcxproj">
+      <Project>{1888d6d0-ff70-42ae-98fa-b484eda7aecb}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -95,7 +100,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -113,7 +118,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
     </ClCompile>
