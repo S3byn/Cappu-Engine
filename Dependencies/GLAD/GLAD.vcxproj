@@ -1,6 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -10,62 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Cappu\Renderer\RenderContext.h" />
-    <ClInclude Include="src\Platforms\APIS\OpenGL\GLRenderContext.h" />
-    <ClInclude Include="src\Cappu\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Cappu\Systems\LayerManager.h" />
-    <ClInclude Include="src\Cappu\Systems\Layer.h" />
-    <ClInclude Include="src\CappuPCH.h" />
-    <ClInclude Include="src\Cappu\Debug\Log.h" />
-    <ClInclude Include="src\Cappu\EntryPoint.h" />
-    <ClInclude Include="src\Cappu\Events\Events.h" />
-    <ClInclude Include="src\Cappu\Events\KeyEvents.h" />
-    <ClInclude Include="src\Cappu\Events\MouseEvents.h" />
-    <ClInclude Include="src\Cappu\Events\WindowEvents.h" />
-    <ClInclude Include="src\Cappu\Systems\App.h" />
-    <ClInclude Include="src\Cappu.h" />
-    <ClInclude Include="src\Cappu\Systems\Core.h" />
-    <ClInclude Include="src\Cappu\Systems\Input.h" />
-    <ClInclude Include="src\Cappu\Systems\KeyCodes.h" />
-    <ClInclude Include="src\Cappu\Systems\MouseCodes.h" />
-    <ClInclude Include="src\Cappu\Systems\Window.h" />
-    <ClInclude Include="src\Platforms\OS\Windows\WinWindow.h" />
-    <ClInclude Include="src\Platforms\OS\Windows\WinInput.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Platforms\APIS\OpenGL\GLRenderContext.cpp" />
-    <ClCompile Include="src\Cappu\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Cappu\Systems\LayerManager.cpp" />
-    <ClCompile Include="src\Cappu\Systems\Layer.cpp" />
-    <ClCompile Include="src\CappuPCH.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\Cappu\Debug\Log.cpp" />
-    <ClCompile Include="src\Cappu\Systems\App.cpp" />
-    <ClCompile Include="src\Platforms\OS\Windows\WinWindow.cpp" />
-    <ClCompile Include="src\Platforms\OS\Windows\WinInput.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Dependencies\GLAD\GLAD.vcxproj">
-      <Project>{cb7dd1cc-70cf-4684-8704-bfd08a22c87e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
-      <Project>{afc63031-4be8-4074-b12e-be7c86f69c43}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Dependencies\ImGui\ImGui.vcxproj">
-      <Project>{1888d6d0-ff70-42ae-98fa-b484eda7aecb}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ef614784-c623-42f0-a7f8-6ea2eb93fc98}</ProjectGuid>
-    <RootNamespace>Cappu</RootNamespace>
+    <ProjectGuid>{cb7dd1cc-70cf-4684-8704-bfd08a22c87e}</ProjectGuid>
+    <RootNamespace>GLAD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -84,6 +57,12 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -99,16 +78,39 @@
     <OutDir>$(SolutionDir)Bin\$(ProjectName)\$(Configuration) - $(Platform)\</OutDir>
     <IntDir>$(SolutionDir)Bin Intermediates\$(ProjectName)\$(Configuration) - $(Platform)\</IntDir>
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,16 +125,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\glad.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\glad\glad.h" />
+    <ClInclude Include="include\KHR\khrplatform.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

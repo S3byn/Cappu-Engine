@@ -5,6 +5,10 @@
 #include "Cappu/Events/KeyEvents.h"
 #include "Cappu/Events/MouseEvents.h"
 
+#include "Platforms/APIS/OpenGL/GLRenderContext.h"
+
+#include "Cappu/Debug/Log.h"
+
 static bool s_glfwInit = false;
 
 Cappu::Unique<Cappu::Window> Cappu::Window::Create(const WindowProps& props) {
@@ -33,7 +37,9 @@ void Cappu::WinWindow::init(const WindowProps& props) {
 
 	//Create window
 	m_window = glfwCreateWindow(props.width, props.height, m_data.title.c_str(), NULL, NULL);
-	glfwMakeContextCurrent(m_window);
+	m_context = new GLRenderContext(m_window);
+
+	m_context->Init();
 
 	glfwSetWindowUserPointer(m_window, &m_data);
 	SetVSync(true);
@@ -47,7 +53,7 @@ void Cappu::WinWindow::shutdown() {
 
 void Cappu::WinWindow::OnUpdate() {
 	glfwPollEvents();
-	glfwSwapBuffers(m_window);
+	m_context->SwapBuffers();
 }
 
 void Cappu::WinWindow::SetVSync(bool enable) {
