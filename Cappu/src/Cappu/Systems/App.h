@@ -40,6 +40,8 @@ namespace Cappu {
 		bool m_running = true;
 
 		float m_lastTime = 0.0f;
+
+		uint32_t vao, vbo, ibo;
 	};
 
 	//To be defined in client

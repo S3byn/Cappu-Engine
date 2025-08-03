@@ -11,8 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cappu\Renderer\RenderCommands.h" />
     <ClInclude Include="src\Cappu\Renderer\RenderContext.h" />
-    <ClInclude Include="src\Platforms\APIS\OpenGL\GLRenderContext.h" />
+    <ClInclude Include="src\Cappu\Renderer\Renderer.h" />
+    <ClInclude Include="src\Cappu\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platforms\API\OpenGL\GLRenderContext.h" />
     <ClInclude Include="src\Cappu\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Cappu\Systems\LayerManager.h" />
     <ClInclude Include="src\Cappu\Systems\Layer.h" />
@@ -30,11 +33,15 @@
     <ClInclude Include="src\Cappu\Systems\KeyCodes.h" />
     <ClInclude Include="src\Cappu\Systems\MouseCodes.h" />
     <ClInclude Include="src\Cappu\Systems\Window.h" />
+    <ClInclude Include="src\Platforms\API\OpenGL\GLRendererAPI.h" />
     <ClInclude Include="src\Platforms\OS\Windows\WinWindow.h" />
     <ClInclude Include="src\Platforms\OS\Windows\WinInput.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platforms\APIS\OpenGL\GLRenderContext.cpp" />
+    <ClCompile Include="src\Cappu\Renderer\RenderCommands.cpp" />
+    <ClCompile Include="src\Cappu\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Cappu\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platforms\API\OpenGL\GLRenderContext.cpp" />
     <ClCompile Include="src\Cappu\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Cappu\Systems\LayerManager.cpp" />
     <ClCompile Include="src\Cappu\Systems\Layer.cpp" />
@@ -44,6 +51,7 @@
     </ClCompile>
     <ClCompile Include="src\Cappu\Debug\Log.cpp" />
     <ClCompile Include="src\Cappu\Systems\App.cpp" />
+    <ClCompile Include="src\Platforms\API\OpenGL\GLRendererAPI.cpp" />
     <ClCompile Include="src\Platforms\OS\Windows\WinWindow.cpp" />
     <ClCompile Include="src\Platforms\OS\Windows\WinInput.cpp" />
   </ItemGroup>
@@ -53,6 +61,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
       <Project>{afc63031-4be8-4074-b12e-be7c86f69c43}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\GLM\GLM.vcxproj">
+      <Project>{6f8285ae-0c5f-4758-b35e-8ae2720d3509}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\ImGui\ImGui.vcxproj">
       <Project>{1888d6d0-ff70-42ae-98fa-b484eda7aecb}</Project>
@@ -103,12 +114,13 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;CAPPU_PLATFORM_WINDOWS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\GLM\src</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,12 +133,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;CAPPU_PLATFORM_WINDOWS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cappu\src;$(SolutionDir)Dependencies\GLFW\include;C:\Dev\Cappu\Dependencies\ImGui\src;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\GLM\src</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CappuPCH.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

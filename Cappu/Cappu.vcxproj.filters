@@ -39,7 +39,19 @@
     <ClCompile Include="src\Cappu\ImGui\ImGuiLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platforms\APIS\OpenGL\GLRenderContext.cpp">
+    <ClCompile Include="src\Platforms\API\OpenGL\GLRenderContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cappu\Renderer\RendererAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cappu\Renderer\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cappu\Renderer\RenderCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\API\OpenGL\GLRendererAPI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,10 +113,22 @@
     <ClInclude Include="src\Cappu\ImGui\ImGuiLayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platforms\APIS\OpenGL\GLRenderContext.h">
+    <ClInclude Include="src\Platforms\API\OpenGL\GLRenderContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Cappu\Renderer\RenderContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Renderer\RendererAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Renderer\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cappu\Renderer\RenderCommands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\API\OpenGL\GLRendererAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

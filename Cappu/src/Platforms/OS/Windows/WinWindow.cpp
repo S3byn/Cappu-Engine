@@ -5,7 +5,7 @@
 #include "Cappu/Events/KeyEvents.h"
 #include "Cappu/Events/MouseEvents.h"
 
-#include "Platforms/APIS/OpenGL/GLRenderContext.h"
+#include "Platforms/API/OpenGL/GLRenderContext.h"
 
 #include "Cappu/Debug/Log.h"
 

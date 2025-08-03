@@ -5,7 +5,9 @@
 
 class Game : public Cappu::App {
 public:
-	Game() {}
+	Game() {
+		PushLayer(new Test);
+	}
 	~Game() {}
 };
 

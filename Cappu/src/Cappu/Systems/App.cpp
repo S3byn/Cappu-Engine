@@ -2,6 +2,9 @@
 #include "App.h"
 
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
+
+#include "Cappu/Renderer/Renderer.h"
 
 Cappu::App* Cappu::App::s_instance = nullptr;
 
@@ -14,6 +17,34 @@ Cappu::App::App() {
 	
 	m_imGuiLayer = new ImGuiLayer();
 	PushOverlay(m_imGuiLayer);
+
+	float vertexData[] = {
+		-0.5f, 0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.5f, 0.5f, 0.0f
+	};
+
+	uint32_t indices[] = {
+		0,1,2,
+		3,2,0
+	};
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+
+	glGenBuffers(1, &ibo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+
+	glBindVertexArray(0);
 }
 
 Cappu::App::~App() {}
@@ -30,6 +61,14 @@ void Cappu::App::PushOverlay(Layer* overlay) {
 
 void Cappu::App::Run() {
 	while (m_running){
+		//glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		//glClear(GL_COLOR_BUFFER_BIT);
+
+		RenderCommand::Clear({0.0f,0.0f,0.0f,1.0f});
+
+		glBindVertexArray(vao);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 		float time = (float)glfwGetTime();
 		float delta = time - m_lastTime;
 		m_lastTime = time;

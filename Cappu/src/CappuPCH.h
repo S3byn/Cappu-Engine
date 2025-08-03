@@ -19,3 +19,7 @@
 #include <stdarg.h>
 
 #include "Cappu/Debug/Log.h"
+
+#ifdef CAPPU_PLATFORM_WINDOWS
+	#include <windows.h>
+#endif
